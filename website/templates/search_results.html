@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Bookshelf{% endblock %} 
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Search results for "{{ query }}"</h2>
+    <br><br>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-md-12 mb-3">
+            <div class="row align-items-center">
+                <!-- Book Thumbnail on the left -->
+                <div class="col-md-2">
+                    <img src="{{ book['thumbnail'] }}" alt="{{ book['title'] }}" class="book-thumbnail" class="img-fluid">
+                </div>
+
+                <div class="book-result">
+                    <h4 class="book-title">{{ book['title'] }}</h4>
+                    <p class="author-display">by {{ book['authors'] }}</p>
+                    <p class="details-display">Published: {{ book['published_year'] }} - {{ book['page_count'] }} pages</p>
+
+                    <form action="/add_to_want_to_read" method="POST">
+                        <input type="hidden" name="title" value="{{ book['title'] }}">
+                        <input type="hidden" name="author" value="{{ book['authors'] }}">
+                        <input type="hidden" name="published_year" value="{{ book['published_year'] }}">
+                        <input type="hidden" name="page_count" value="{{ book['page_count'] }}">
+                    <!-- FIX: button will add the book to the bookshelf db when clicked 
+                    also needs to change color when action completed-->
+                    <button  type="submit" class="want-to-read-btn">Want to read</button>
+                </div>
+               
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
