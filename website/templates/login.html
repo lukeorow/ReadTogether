@@ -2,17 +2,19 @@
 %}
 <form method="POST">
   <h3 align="center">Login</h3>
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="email"
-      name="email"
-      placeholder="Enter email"
-      value="{{ firstName if firstName else '' }}"
-    />
-  </div>
+  <br>
+  <div class="container-fluid" class="mx-auto" style="width: 500px;">
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Enter email"
+        value="{{ firstName if firstName else '' }}"
+      />
+    </div>
   <div class="form-group">
     <label for="password">Password</label>
     <input
@@ -25,6 +27,8 @@
     />
   </div>
   <br />
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit" class="btn btn-primary btn-lg" style="width: 230px;">Login</button>
+  <button type="signUp" class="btn btn-secondary btn-lg" style="width: 230px;">Create new account</button>
+</div>
 </form>
 {% endblock %}
