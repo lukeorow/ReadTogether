@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
+from website.book_search import get_book_search
 
 auth = Blueprint('auth', __name__)
 
@@ -49,7 +50,20 @@ def sign_up():
         
     return render_template("sign_up.html")
     
-    
+
 @auth.route('/bookshelf')
 def bookshelf():
+    return render_template('bookshelf.html')
+
+@auth.route('/search', methods=["GET"])
+def search_books():
+    query = request.args.get('search_book')
+    
+    if query:
+        book_search_results = get_book_search(query)
+        
+        print(book_search_results)
+        
+        return render_template('search_results.html', books=book_search_results, query=query)
+    
     return render_template('bookshelf.html')
