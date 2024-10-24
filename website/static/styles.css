@@ -1,3 +1,62 @@
 .input-small {
     max-width: 50vw;
 }
+
+body {
+    background-color: #f4e1d2; 
+}
+
+.book-result {
+    margin-bottom: 20dp;
+
+}
+
+.book-title {
+    font-size: 20sp;
+    font-weight: bold;
+    margin: 0; 
+}
+
+.author-display {
+    font-size: 15px;
+    font-style: italic;
+    margin: 3px 0;
+
+}
+
+.details-display {
+    margin: 0;
+    color: gray; 
+    font-size: 14px;
+}
+
+.book-thumbnail {
+    max-width: 50%;
+    height: auto;
+}
+
+.separator-line {
+    border: 0;
+    height: 1px;
+    background-color: #ddd; /* Light gray color */
+    margin: 15px 0; /* Space around the line */
+    opacity: 0.5; /* Makes the line more feint */
+}
+
+.want-to-read-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    background-color: #8531a4; /* Bootstrap blue */
+    border-width: 1px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.want-to-read-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
