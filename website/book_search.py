@@ -2,11 +2,10 @@ import requests
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
-api_key = os.getenv('API_KEY') # gets google books api key from .env file
-
-def get_book_search(query, api_key="AIzaSyAF7yCYmAZX9QVUlLqgXGOX0gBAArh8kws"):
+def get_book_search(query, api_key):
+    load_dotenv()
+    api_key = os.getenv('API_KEY') # gets google books api key from .env file
     url = f"https://www.googleapis.com/books/v1/volumes?q={query}&maxResults=20&key={api_key}"
     response = requests.get(url)
     if response.status_code == 200:
